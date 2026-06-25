@@ -1,0 +1,977 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EPIC GYM — Premium Fitness | Build Strength. Become Epic.</title>
+<meta name="description" content="EPIC GYM — Premium fitness centre with certified trainers, modern equipment, and real transformation results. Join India's most trusted gym. Start your journey today.">
+<meta name="theme-color" content="#0B0B0B">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#0B0B0B;
+  --bg2:#111111;
+  --surface:#151515;
+  --surface2:#1E1E1E;
+  --glass:rgba(255,255,255,0.03);
+  --glass-hover:rgba(255,255,255,0.06);
+  --red:#FF3B30;
+  --red-dim:#CC2F26;
+  --red-glow:rgba(255,59,48,0.15);
+  --red-light:rgba(255,59,48,0.25);
+  --orange:#FF6B00;
+  --orange-glow:rgba(255,107,0,0.12);
+  --txt:#FFFFFF;
+  --txt2:#A0A0A0;
+  --txt3:#666666;
+  --border:rgba(255,255,255,0.06);
+  --border-hover:rgba(255,255,255,0.12);
+  --shadow:0 8px 40px rgba(0,0,0,0.6);
+  --shadow-lg:0 20px 60px rgba(0,0,0,0.8);
+  --radius:12px;
+  --radius-lg:20px;
+  --radius-xl:28px;
+  --ease:cubic-bezier(0.25,0.46,0.45,0.94);
+  --ease-out:cubic-bezier(0.16,1,0.3,1);
+  --ease-bounce:cubic-bezier(0.34,1.56,0.64,1);
+}
+html{scroll-behavior:smooth;overflow-x:hidden}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--txt);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;height:auto;display:block}
+a{text-decoration:none;color:inherit}
+button{cursor:pointer;border:none;background:none;font:inherit;color:inherit}
+ul{list-style:none}
+::selection{background:var(--red);color:var(--txt)}
+::-webkit-scrollbar{width:8px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:var(--surface2);border-radius:4px}
+::-webkit-scrollbar-thumb:hover{background:var(--red-dim)}
+
+.container{max-width:1240px;margin:0 auto;padding:0 24px}
+.section{padding:110px 0;position:relative}
+.section-label{display:inline-flex;align-items:center;gap:8px;font-size:13px;letter-spacing:3px;text-transform:uppercase;font-weight:600;margin-bottom:14px;color:var(--txt2)}
+.section-label::before{content:'';width:24px;height:2px;background:var(--red);flex-shrink:0}
+.title{font-family:'Oswald',sans-serif;font-size:clamp(32px,5vw,56px);font-weight:700;line-height:1.1;margin-bottom:18px;text-transform:uppercase}
+.title em{font-style:normal;color:var(--red)}
+.subtitle{font-size:17px;color:var(--txt2);max-width:560px;line-height:1.7;font-weight:300}
+.section-header{text-align:center;margin-bottom:64px}
+.section-header .subtitle{margin:0 auto}
+.section-header .section-label{justify-content:center}
+.section-header .section-label::before{display:none}
+.section-header .section-label::after{content:'';width:24px;height:2px;background:var(--red);flex-shrink:0}
+
+/* Navigation */
+nav{position:fixed;top:0;left:0;width:100%;z-index:1000;padding:0 32px;transition:all var(--ease);height:72px;display:flex;align-items:center}
+nav::before{content:'';position:absolute;inset:0;background:rgba(11,11,11,0.88);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);opacity:0;transition:opacity var(--ease)}
+nav.scrolled::before{opacity:1}
+nav.scrolled{border-bottom:1px solid var(--border)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;width:100%;max-width:1240px;margin:0 auto;position:relative;z-index:1}
+.nav-logo{display:flex;align-items:center;gap:10px;font-size:24px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase}
+.nav-logo svg{width:28px;height:28px;color:var(--red)}
+.nav-logo span{color:var(--red)}
+.nav-links{display:flex;gap:28px;align-items:center}
+.nav-links a{font-size:13px;font-weight:500;color:var(--txt2);transition:color var(--ease);position:relative;letter-spacing:0.5px;text-transform:uppercase}
+.nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;background:var(--red);transition:width var(--ease)}
+.nav-links a:hover{color:var(--txt)}.nav-links a:hover::after{width:100%}
+.nav-btn{position:relative;padding:10px 28px;background:var(--red);color:var(--txt);border-radius:6px;font-weight:700;font-size:12px;letter-spacing:1px;text-transform:uppercase;transition:all var(--ease);overflow:hidden}
+.nav-btn::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,transparent 30%,rgba(255,255,255,0.12) 50%,transparent 70%);transform:translateX(-100%);transition:transform 0.5s var(--ease)}
+.nav-btn:hover::before{transform:translateX(100%)}
+.nav-btn:hover{background:var(--orange);transform:translateY(-1px);box-shadow:0 4px 20px var(--red-glow)}
+.nav-toggle{display:none;flex-direction:column;gap:5px;padding:4px;z-index:1001}
+.nav-toggle span{width:24px;height:2px;background:var(--txt);transition:all var(--ease);border-radius:2px}
+.nav-toggle.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.nav-toggle.active span:nth-child(2){opacity:0;transform:translateX(-8px)}
+.nav-toggle.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+
+/* Progress bar */
+.progress-bar{position:fixed;top:0;left:0;width:0;height:3px;background:linear-gradient(90deg,var(--red),var(--orange));z-index:1001;transition:width 0.1s linear}
+
+/* Hero */
+.hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;padding:120px 0 80px}
+.hero-bg{position:absolute;inset:0;background:url('images/hero/hero-bg.jpg') center/cover no-repeat;transform:scale(1.05);animation:heroZoom 25s ease-out infinite alternate}
+@keyframes heroZoom{from{transform:scale(1.05)}to{transform:scale(1.12)}}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(11,11,11,0.94) 0%,rgba(11,11,11,0.5) 45%,rgba(11,11,11,0.88) 100%)}
+.hero-overlay::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 25% 50%, var(--red-glow) 0%, transparent 60%)}
+.hero-content{position:relative;z-index:2;max-width:780px}
+.hero-badge{display:inline-flex;align-items:center;gap:10px;padding:8px 20px;border:1px solid var(--red-light);border-radius:6px;font-size:11px;letter-spacing:3px;text-transform:uppercase;font-weight:600;color:var(--red);margin-bottom:32px;backdrop-filter:blur(8px);background:rgba(255,59,48,0.06)}
+.hero-badge::before{content:'';width:6px;height:6px;background:var(--red);border-radius:50%;animation:pulseDot 2s ease-in-out infinite}
+@keyframes pulseDot{0%,100%{opacity:1}50%{opacity:0.3}}
+.hero h1{font-family:'Oswald',sans-serif;font-size:clamp(42px,7vw,88px);font-weight:700;line-height:1.05;margin-bottom:24px;text-transform:uppercase;letter-spacing:-1px}
+.hero h1 em{font-style:normal;color:var(--red)}
+.hero p{font-size:clamp(16px,1.15vw,19px);color:var(--txt2);max-width:560px;line-height:1.8;margin-bottom:40px;font-weight:300}
+.hero-btns{display:flex;gap:16px;flex-wrap:wrap}
+.btn-primary{position:relative;padding:16px 40px;background:var(--red);color:var(--txt);border-radius:6px;font-weight:700;font-size:14px;letter-spacing:1px;text-transform:uppercase;transition:all var(--ease);display:inline-flex;align-items:center;gap:10px;overflow:hidden}
+.btn-primary::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,transparent 30%,rgba(255,255,255,0.12) 50%,transparent 70%);transform:translateX(-100%);transition:transform 0.6s var(--ease)}
+.btn-primary:hover::before{transform:translateX(100%)}
+.btn-primary:hover{background:var(--orange);transform:translateY(-2px);box-shadow:0 8px 30px var(--red-glow)}
+.btn-primary:active{transform:translateY(0)}
+.btn-secondary{position:relative;padding:16px 40px;border:1px solid var(--border-hover);border-radius:6px;font-weight:600;font-size:14px;letter-spacing:0.5px;color:var(--txt);transition:all var(--ease);display:inline-flex;align-items:center;gap:8px;backdrop-filter:blur(4px);background:rgba(255,255,255,0.03)}
+.btn-secondary:hover{border-color:var(--red);color:var(--red);transform:translateY(-2px);box-shadow:0 8px 30px rgba(0,0,0,0.3)}
+.hero-scroll{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:6px;color:var(--txt3);font-size:10px;letter-spacing:3px;text-transform:uppercase;animation:bounceScroll 3s ease-in-out infinite}
+.hero-scroll .scroll-line{width:1px;height:36px;background:linear-gradient(to bottom,var(--red),transparent)}
+
+/* Particles */
+.particles{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:1}
+.particle{position:absolute;width:3px;height:3px;background:var(--red);border-radius:50%;opacity:0;animation:particleFloat 10s ease-in-out infinite}
+@keyframes particleFloat{0%{opacity:0;transform:translateY(100vh) scale(0)}20%{opacity:0.3}80%{opacity:0.15}100%{opacity:0;transform:translateY(-10vh) scale(1)}}
+
+@keyframes bounceScroll{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(8px)}}
+
+/* Stats */
+.stats{background:var(--bg2);position:relative;overflow:hidden}
+.stats::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--red-light),transparent)}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;padding:8px 0}
+.stat-item{text-align:center;padding:44px 20px;position:relative}
+.stat-item:not(:last-child)::after{content:'';position:absolute;right:0;top:50%;transform:translateY(-50%);width:1px;height:50%;background:linear-gradient(to bottom,transparent,var(--border-hover),transparent)}
+.stat-number{font-family:'Oswald',sans-serif;font-size:clamp(38px,4vw,56px);font-weight:700;color:var(--red);line-height:1;margin-bottom:8px;letter-spacing:-1px}
+.stat-number .plus{font-size:clamp(22px,2vw,32px);font-weight:400;color:var(--orange)}
+.stat-label{font-size:13px;color:var(--txt2);letter-spacing:1.5px;text-transform:uppercase;font-weight:500}
+
+/* About */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.about-image{position:relative;border-radius:var(--radius-lg);overflow:hidden;aspect-ratio:4/5}
+.about-image img{width:100%;height:100%;object-fit:cover;transition:transform 0.8s var(--ease)}
+.about-image:hover img{transform:scale(1.05)}
+.about-image::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,transparent 50%,rgba(255,59,48,0.06))}
+.about-image .accent-box{position:absolute;bottom:-16px;right:-16px;width:110px;height:110px;background:linear-gradient(135deg,var(--red),var(--orange));border-radius:var(--radius);display:flex;align-items:center;justify-content:center;flex-direction:column;color:var(--txt);font-weight:700;font-size:13px;line-height:1.3;text-align:center;padding:16px;box-shadow:0 8px 30px var(--red-glow)}
+.about-image .accent-box span{font-family:'Oswald',sans-serif;font-size:36px;display:block;margin-bottom:2px;line-height:1}
+.about-text h3{font-family:'Oswald',sans-serif;font-size:clamp(26px,3vw,38px);font-weight:700;margin-bottom:20px;line-height:1.15;text-transform:uppercase}
+.about-text p{color:var(--txt2);font-size:15px;line-height:1.8;margin-bottom:16px;font-weight:300}
+.about-features{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:32px}
+.about-feature{display:flex;align-items:center;gap:12px;font-size:14px;color:var(--txt);font-weight:400}
+.about-feature svg{width:18px;height:18px;flex-shrink:0;color:var(--red)}
+
+/* Services */
+.services{background:var(--bg2)}
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.service-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:36px 28px;transition:all var(--ease);position:relative;overflow:hidden;cursor:default}
+.service-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--red),var(--orange));opacity:0;transition:opacity var(--ease)}
+.service-card:hover::before{opacity:1}
+.service-card:hover{background:var(--surface2);border-color:var(--border-hover);transform:translateY(-5px);box-shadow:0 20px 60px rgba(0,0,0,0.5)}
+.service-icon{width:54px;height:54px;border-radius:var(--radius);background:rgba(255,59,48,0.08);display:flex;align-items:center;justify-content:center;margin-bottom:22px;font-size:22px;transition:all var(--ease)}
+.service-card:hover .service-icon{background:rgba(255,59,48,0.15);transform:scale(1.08) rotate(-5deg)}
+.service-card h3{font-family:'Oswald',sans-serif;font-size:20px;font-weight:600;margin-bottom:10px;text-transform:uppercase}
+.service-card p{color:var(--txt2);font-size:14px;line-height:1.7;font-weight:300}
+.service-number{position:absolute;top:20px;right:24px;font-size:40px;font-weight:800;color:rgba(255,59,48,0.04);font-family:'Oswald',sans-serif;line-height:1;user-select:none}
+
+/* Trainers */
+.trainers-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.trainer-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;transition:all var(--ease);cursor:default}
+.trainer-card:hover{transform:translateY(-6px);border-color:var(--border-hover);box-shadow:var(--shadow-lg)}
+.trainer-img{aspect-ratio:3/4;overflow:hidden;position:relative}
+.trainer-img img{width:100%;height:100%;object-fit:cover;transition:transform 0.8s var(--ease)}
+.trainer-card:hover .trainer-img img{transform:scale(1.08)}
+.trainer-img .overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(11,11,11,0.85),transparent 50%);opacity:0;transition:opacity var(--ease)}
+.trainer-card:hover .trainer-img .overlay{opacity:1}
+.trainer-social{position:absolute;bottom:16px;left:50%;transform:translateX(-50%);display:flex;gap:10px;opacity:0;transition:all var(--ease);transition-delay:0.05s}
+.trainer-card:hover .trainer-social{opacity:1;bottom:22px}
+.trainer-social a{width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,0.1);backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center;color:var(--txt);transition:all var(--ease);font-size:13px}
+.trainer-social a:hover{background:var(--red);transform:scale(1.1)}
+.trainer-info{padding:22px}
+.trainer-info h3{font-family:'Oswald',sans-serif;font-size:18px;font-weight:600;margin-bottom:2px;text-transform:uppercase}
+.trainer-info .role{font-size:12px;color:var(--red);font-weight:600;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px}
+.trainer-info .spec{font-size:13px;color:var(--txt2);font-weight:300}
+.trainer-cert{display:inline-block;margin-top:10px;font-size:10px;padding:4px 12px;background:rgba(255,59,48,0.08);border:1px solid rgba(255,59,48,0.15);border-radius:4px;color:var(--red);letter-spacing:0.5px;font-weight:600;text-transform:uppercase}
+
+/* Gallery */
+.gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.gallery-item{position:relative;border-radius:var(--radius);overflow:hidden;cursor:pointer;aspect-ratio:1}
+.gallery-item:nth-child(1){grid-column:span 2;grid-row:span 2}
+.gallery-item:nth-child(6){grid-column:span 2}
+.gallery-item img{width:100%;height:100%;object-fit:cover;transition:transform 0.8s var(--ease)}
+.gallery-item:hover img{transform:scale(1.1)}
+.gallery-item .overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(11,11,11,0.8),transparent 30%);opacity:0;transition:opacity var(--ease);display:flex;align-items:flex-end;padding:18px}
+.gallery-item:hover .overlay{opacity:1}
+.gallery-item .overlay span{font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:1px;display:flex;align-items:center;gap:6px;color:var(--txt)}
+.gallery-more{display:flex;justify-content:center;margin-top:40px}
+
+/* Lightbox */
+.lightbox{position:fixed;inset:0;z-index:2000;background:rgba(0,0,0,0.95);backdrop-filter:blur(24px);display:none;align-items:center;justify-content:center;padding:40px;cursor:pointer}
+.lightbox.active{display:flex}
+.lightbox img{max-width:90vw;max-height:90vh;object-fit:contain;border-radius:var(--radius-lg);box-shadow:0 40px 80px rgba(0,0,0,0.8)}
+.lightbox-close{position:absolute;top:24px;right:32px;width:48px;height:48px;border-radius:6px;background:rgba(255,255,255,0.08);display:flex;align-items:center;justify-content:center;font-size:22px;color:var(--txt);transition:all var(--ease);cursor:pointer;border:1px solid var(--border)}
+.lightbox-close:hover{background:var(--red);transform:rotate(90deg)}
+
+/* Pricing */
+.pricing{background:var(--bg2)}
+.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;align-items:start}
+.pricing-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-xl);padding:44px 32px;transition:all var(--ease);position:relative;overflow:hidden;cursor:default}
+.pricing-card.featured{background:linear-gradient(135deg,var(--surface2),var(--surface));border-color:var(--red);box-shadow:0 0 50px var(--red-glow);transform:scale(1.02);border-width:1.5px}
+.pricing-card.featured .badge{position:absolute;top:18px;right:-32px;background:var(--red);color:var(--txt);padding:6px 42px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:2px;transform:rotate(45deg);box-shadow:0 4px 12px var(--red-glow)}
+.pricing-card:hover{transform:translateY(-5px);border-color:var(--border-hover);box-shadow:var(--shadow-lg)}
+.pricing-card.featured:hover{transform:scale(1.02) translateY(-5px)}
+.pricing-name{font-family:'Oswald',sans-serif;font-size:22px;font-weight:600;margin-bottom:2px;text-transform:uppercase}
+.pricing-desc{font-size:13px;color:var(--txt2);font-weight:300;margin-bottom:24px}
+.pricing-price{display:flex;align-items:baseline;gap:4px;margin-bottom:28px}
+.pricing-price .currency{font-size:22px;color:var(--txt2);font-weight:500}
+.pricing-price .amount{font-family:'Oswald',sans-serif;font-size:48px;font-weight:700;color:var(--red);line-height:1;letter-spacing:-1px}
+.pricing-price .period{font-size:14px;color:var(--txt3);font-weight:300}
+.pricing-features{display:flex;flex-direction:column;gap:10px;margin-bottom:32px}
+.pricing-features li{display:flex;align-items:center;gap:10px;font-size:14px;color:var(--txt2);font-weight:300}
+.pricing-features li svg{width:16px;height:16px;flex-shrink:0;color:var(--red)}
+
+/* Transformations & Testimonials */
+.transformations{background:var(--bg)}
+.transform-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:60px}
+.transform-card{display:flex;gap:16px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:20px;align-items:center;transition:all var(--ease)}
+.transform-card:hover{transform:translateY(-3px);border-color:var(--border-hover);box-shadow:var(--shadow)}
+.transform-images{display:flex;gap:8px;flex-shrink:0}
+.transform-images img{width:80px;height:108px;object-fit:cover;border-radius:8px}
+.transform-info h4{font-family:'Oswald',sans-serif;font-size:16px;font-weight:600;margin-bottom:4px;text-transform:uppercase}
+.transform-info p{font-size:13px;color:var(--txt2);font-weight:300;line-height:1.6}
+.transform-result{display:inline-block;margin-top:8px;font-size:11px;padding:4px 14px;background:rgba(255,59,48,0.08);border-radius:4px;color:var(--red);font-weight:600;letter-spacing:0.5px}
+.testimonials-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.testimonial-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:32px;transition:all var(--ease);cursor:default;position:relative}
+.testimonial-card::before{content:'"';position:absolute;top:16px;left:20px;font-size:64px;line-height:1;color:rgba(255,59,48,0.08);font-family:'Oswald',sans-serif}
+.testimonial-card:hover{transform:translateY(-4px);border-color:var(--border-hover);box-shadow:var(--shadow)}
+.testimonial-stars{display:flex;gap:3px;margin-bottom:14px;color:var(--orange);font-size:15px}
+.testimonial-text{color:var(--txt2);font-size:14px;line-height:1.7;font-weight:300;margin-bottom:20px;font-style:italic}
+.testimonial-author{display:flex;align-items:center;gap:12px}
+.testimonial-author img{width:44px;height:44px;border-radius:50%;object-fit:cover;border:2px solid rgba(255,59,48,0.2)}
+.testimonial-author .name{font-size:14px;font-weight:600;color:var(--txt)}
+.testimonial-author .detail{font-size:11px;color:var(--txt3);margin-top:2px;text-transform:uppercase;letter-spacing:0.5px}
+
+/* Why Choose Us */
+.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.why-card{text-align:center;padding:40px 24px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);transition:all var(--ease);cursor:default}
+.why-card:hover{transform:translateY(-5px);border-color:var(--border-hover);box-shadow:var(--shadow)}
+.why-icon{width:64px;height:64px;border-radius:50%;background:rgba(255,59,48,0.08);display:flex;align-items:center;justify-content:center;margin:0 auto 18px;font-size:24px;transition:all var(--ease);border:1px solid rgba(255,59,48,0.1)}
+.why-card:hover .why-icon{background:rgba(255,59,48,0.15);transform:scale(1.1) rotate(-5deg)}
+.why-card h3{font-family:'Oswald',sans-serif;font-size:18px;font-weight:600;margin-bottom:10px;text-transform:uppercase}
+.why-card p{font-size:14px;color:var(--txt2);font-weight:300;line-height:1.7}
+
+/* FAQ */
+.faq{background:var(--bg2)}
+.faq-list{max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:10px}
+.faq-item{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;transition:all var(--ease)}
+.faq-item:hover{border-color:var(--border-hover)}
+.faq-question{width:100%;display:flex;justify-content:space-between;align-items:center;padding:22px 24px;text-align:left;font-size:15px;font-weight:500;color:var(--txt);transition:color var(--ease);gap:16px}
+.faq-question svg{width:18px;height:18px;flex-shrink:0;color:var(--txt3);transition:transform var(--ease)}
+.faq-item.active .faq-question{color:var(--red)}
+.faq-item.active .faq-question svg{transform:rotate(45deg);color:var(--red)}
+.faq-answer{padding:0 24px;max-height:0;overflow:hidden;transition:all var(--ease)}
+.faq-item.active .faq-answer{max-height:250px;padding:0 24px 22px}
+.faq-answer p{font-size:14px;color:var(--txt2);font-weight:300;line-height:1.8}
+
+/* Contact */
+.contact{background:var(--bg);position:relative}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px}
+.contact-info{display:flex;flex-direction:column;gap:14px}
+.contact-item{display:flex;align-items:flex-start;gap:16px;padding:18px 20px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);transition:all var(--ease)}
+.contact-item:hover{border-color:var(--red-light);transform:translateX(4px)}
+.contact-icon{width:44px;height:44px;border-radius:6px;background:rgba(255,59,48,0.08);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:18px}
+.contact-item h4{font-size:14px;font-weight:600;margin-bottom:2px}
+.contact-item p{font-size:13px;color:var(--txt2);font-weight:300}
+.contact-form{display:flex;flex-direction:column;gap:14px}
+.form-group{display:flex;flex-direction:column;gap:6px}
+.form-group label{font-size:12px;font-weight:600;color:var(--txt2);letter-spacing:0.5px;text-transform:uppercase}
+.form-group input,.form-group textarea{padding:14px 18px;background:var(--surface);border:1px solid var(--border);border-radius:6px;color:var(--txt);font-size:14px;font-family:'Inter',sans-serif;transition:all var(--ease);outline:none}
+.form-group input:focus,.form-group textarea:focus{border-color:var(--red);box-shadow:0 0 0 3px var(--red-glow)}
+.form-group input::placeholder,.form-group textarea::placeholder{color:var(--txt3)}
+.form-group textarea{resize:vertical;min-height:110px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+
+/* Map */
+.map-frame{width:100%;height:220px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;margin-top:32px;position:relative;display:flex;align-items:center;justify-content:center}
+.map-frame .map-overlay{position:absolute;inset:0;background:var(--bg2);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;color:var(--txt3);font-size:13px}
+.map-frame .map-overlay svg{width:28px;height:28px;color:var(--red);margin-bottom:4px}
+
+/* Footer */
+footer{background:var(--bg);border-top:1px solid var(--border);padding:56px 0 28px}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;margin-bottom:40px}
+.footer-brand .nav-logo{font-size:22px;margin-bottom:10px}
+.footer-brand p{font-size:13px;color:var(--txt2);font-weight:300;line-height:1.7;max-width:320px}
+.footer-col h4{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:2px;margin-bottom:18px;color:var(--txt)}
+.footer-col a{display:block;font-size:13px;color:var(--txt2);padding:5px 0;transition:color var(--ease);font-weight:300}
+.footer-col a:hover{color:var(--red)}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:28px;border-top:1px solid var(--border);font-size:12px;color:var(--txt3);font-weight:300}
+
+/* WhatsApp */
+.whatsapp-btn{position:fixed;bottom:28px;right:28px;width:60px;height:60px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;z-index:999;cursor:pointer;transition:all 0.3s var(--ease);box-shadow:0 4px 20px rgba(37,211,102,0.3);color:#fff;font-size:26px;animation:waGlow 2.5s ease-in-out infinite,waFloat 3s ease-in-out infinite}
+.whatsapp-btn::before{content:'';position:absolute;inset:-4px;border-radius:50%;border:2px solid rgba(37,211,102,0.2);animation:waRipple 3s ease-out infinite}
+.whatsapp-btn::after{content:'';position:absolute;inset:-8px;border-radius:50%;border:2px solid rgba(37,211,102,0.1);animation:waRipple 3s ease-out 1.5s infinite}
+@keyframes waRipple{0%{transform:scale(1);opacity:1}100%{transform:scale(1.4);opacity:0}}
+.whatsapp-btn:hover{transform:scale(1.08);box-shadow:0 8px 30px rgba(37,211,102,0.45)}
+.whatsapp-btn:active{transform:scale(0.95)}
+.whatsapp-btn .tooltip{position:absolute;right:70px;background:var(--surface2);border:1px solid var(--border);padding:8px 16px;border-radius:6px;font-size:12px;color:var(--txt);white-space:nowrap;opacity:0;pointer-events:none;transition:all 0.3s var(--ease)}
+.whatsapp-btn:hover .tooltip{opacity:1}
+.whatsapp-btn .tooltip::after{content:'';position:absolute;right:-6px;top:50%;transform:translateY(-50%);border-left:6px solid var(--surface2);border-top:6px solid transparent;border-bottom:6px solid transparent}
+@keyframes waGlow{0%,100%{box-shadow:0 4px 20px rgba(37,211,102,0.3)}50%{box-shadow:0 4px 35px rgba(37,211,102,0.55)}}
+@keyframes waFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+.whatsapp-btn .ripple{position:absolute;inset:0;border-radius:50%;background:rgba(255,255,255,0.3);transform:scale(0);opacity:0}
+.whatsapp-btn .ripple.active{animation:waClickRipple 0.6s ease-out}
+@keyframes waClickRipple{0%{transform:scale(0);opacity:0.5}100%{transform:scale(2);opacity:0}}
+
+/* ScrollReveal */
+.reveal{opacity:0;transform:translateY(40px);transition:opacity 0.7s var(--ease-out),transform 0.7s var(--ease-out)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.d1{transition-delay:0.1s}.d2{transition-delay:0.2s}.d3{transition-delay:0.3s}.d4{transition-delay:0.4s}.d5{transition-delay:0.5s}
+
+@media(max-width:1024px){
+  .services-grid{grid-template-columns:repeat(2,1fr)}
+  .trainers-grid{grid-template-columns:repeat(2,1fr)}
+  .pricing-grid{grid-template-columns:1fr;max-width:420px;margin:0 auto}
+  .pricing-card.featured{transform:none}
+  .pricing-card.featured:hover{transform:translateY(-5px)}
+  .testimonials-grid{grid-template-columns:1fr 1fr}
+  .why-grid{grid-template-columns:repeat(2,1fr)}
+  .footer-grid{grid-template-columns:1fr 1fr}
+  .stats-grid{grid-template-columns:repeat(2,1fr)}
+  .stats-grid .stat-item:nth-child(2)::after{display:none}
+  .gallery-grid{grid-template-columns:repeat(3,1fr)}
+  .gallery-item:nth-child(1){grid-column:span 2;grid-row:span 1}
+  .gallery-item:nth-child(6){grid-column:span 1}
+}
+@media(max-width:768px){
+  .nav-links{display:none;position:fixed;top:0;left:0;width:100%;height:100vh;background:rgba(11,11,11,0.98);backdrop-filter:blur(30px);flex-direction:column;justify-content:center;align-items:center;gap:32px;z-index:1000}
+  .nav-links.open{display:flex}
+  .nav-links a{font-size:18px}
+  .nav-toggle{display:flex}
+  .nav-btn{display:none}
+  .nav-links .nav-btn{display:inline-flex;margin-top:8px}
+  .section{padding:80px 0}
+  .about-grid{grid-template-columns:1fr;gap:48px}
+  .about-image .accent-box{bottom:-12px;right:-12px;width:90px;height:90px;font-size:11px}
+  .about-image .accent-box span{font-size:28px}
+  .about-features{grid-template-columns:1fr}
+  .services-grid{grid-template-columns:1fr;max-width:460px;margin:0 auto}
+  .trainers-grid{grid-template-columns:1fr 1fr;max-width:460px;margin:0 auto}
+  .testimonials-grid{grid-template-columns:1fr;max-width:460px;margin:0 auto}
+  .why-grid{grid-template-columns:1fr;max-width:460px;margin:0 auto}
+  .contact-grid{grid-template-columns:1fr;gap:36px}
+  .form-row{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr;text-align:center}
+  .footer-brand p{margin:0 auto}
+  .gallery-grid{grid-template-columns:repeat(2,1fr)}
+  .gallery-item:nth-child(1){grid-column:span 2}
+  .gallery-item:nth-child(6){grid-column:span 2}
+  .transform-grid{grid-template-columns:1fr}
+  .hero h1{font-size:clamp(34px,10vw,52px)}
+  .whatsapp-btn{width:52px;height:52px;font-size:22px;bottom:20px;right:20px}
+  .whatsapp-btn .tooltip{display:none}
+  .stat-item:not(:last-child)::after{display:none}
+  .hero-badge{font-size:10px;padding:6px 14px}
+}
+@media(max-width:480px){
+  .container{padding:0 16px}
+  .section{padding:60px 0}
+  .trainers-grid{grid-template-columns:1fr;max-width:340px;margin:0 auto}
+  .pricing-card{padding:36px 24px}
+  .hero-btns .btn-primary,.hero-btns .btn-secondary{width:100%;justify-content:center}
+  .about-image .accent-box{width:80px;height:80px;font-size:10px}
+  .about-image .accent-box span{font-size:24px}
+  nav{padding:0 16px}
+  .gallery-grid{grid-template-columns:1fr}
+  .gallery-item:nth-child(1){grid-column:span 1}
+  .gallery-item:nth-child(6){grid-column:span 1}
+  .stats-grid{grid-template-columns:1fr 1fr}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:0.01ms!important;animation-iteration-count:1!important;transition-duration:0.01ms!important}
+  html{scroll-behavior:auto}
+  .reveal{opacity:1;transform:none}
+  .hero-bg{animation:none;transform:none}
+}
+</style>
+</head>
+<body>
+
+<div class="progress-bar" id="progressBar"></div>
+
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 6.5h11v11h-11z"/><path d="M2 12h4.5M17.5 12H22M12 2v4.5M12 17.5V22"/></svg>
+      EPIC<span>GYM</span>
+    </a>
+    <div class="nav-links" id="navLinks">
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#trainers">Trainers</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#transformations">Results</a>
+      <a href="#contact" class="nav-btn">Join Now</a>
+    </div>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<section class="hero" id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="particles" id="particles"></div>
+  <div class="container hero-content">
+    <div class="hero-badge reveal">India's Premium Fitness Destination</div>
+    <h1 class="reveal d1">Transform Your Body<br>at <em>EPIC GYM</em></h1>
+    <p class="reveal d2">Premium equipment, certified trainers, and real transformation results. Join the gym that's redefining fitness in India.</p>
+    <div class="hero-btns reveal d3">
+      <a href="#pricing" class="btn-primary">Join Now <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+      <a href="#contact" class="btn-secondary">Book Free Trial</a>
+    </div>
+  </div>
+  <div class="hero-scroll"><span>Scroll</span><div class="scroll-line"></div></div>
+</section>
+
+<section class="stats" id="stats">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-item reveal"><div class="stat-number"><span class="counter" data-target="5000">0</span><span class="plus">+</span></div><div class="stat-label">Members Trained</div></div>
+      <div class="stat-item reveal d1"><div class="stat-number"><span class="counter" data-target="15">0</span><span class="plus">+</span></div><div class="stat-label">Certified Trainers</div></div>
+      <div class="stat-item reveal d2"><div class="stat-number"><span class="counter" data-target="1200">0</span><span class="plus">+</span></div><div class="stat-label">Transformations</div></div>
+      <div class="stat-item reveal d3"><div class="stat-number"><span class="counter" data-target="8">0</span><span class="plus">+</span></div><div class="stat-label">Years Experience</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-image reveal">
+        <img src="images/about/about-gym.jpg" alt="EPIC GYM premium training facility" loading="lazy">
+        <div class="accent-box"><span>2016</span>Established</div>
+      </div>
+      <div class="about-text reveal d1">
+        <span class="section-label">About Us</span>
+        <h3>Where <em>Results</em> Meet <em>Excellence</em></h3>
+        <p>Since 2016, EPIC GYM has been building a fitness community that's second to none. We believe every body deserves a transformation — and we have the trainers, equipment, and atmosphere to make it happen.</p>
+        <p>From premium Technogym equipment imported from Italy to our meticulously sanitised training floors, every rupee you invest at EPIC goes toward your results. No contracts. No hidden fees. Just honest training that works.</p>
+        <div class="about-features">
+          <div class="about-feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> 10,000+ sq. ft Training Floor</div>
+          <div class="about-feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Imported Technogym Equipment</div>
+          <div class="about-feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Separate Cardio & Free Weight Zones</div>
+          <div class="about-feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Clean, Sanitised Environment</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section services" id="services">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">What We Offer</span>
+      <h2 class="title">Our <em>Services</em></h2>
+      <p class="subtitle">From strength training to nutrition guidance, we offer everything you need to achieve your fitness goals.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card reveal">
+        <span class="service-number">01</span>
+        <div class="service-icon">🏋️</div>
+        <h3>Strength Training</h3>
+        <p>Build muscle and increase strength with our premium free weight section, squat racks, and plate-loaded machines. Perfect for muscle gain and power development.</p>
+      </div>
+      <div class="service-card reveal d1">
+        <span class="service-number">02</span>
+        <div class="service-icon">🔥</div>
+        <h3>Weight Loss</h3>
+        <p>Structured fat loss programs combining cardio, HIIT, and diet planning. Our coaches create sustainable plans that deliver visible results within weeks.</p>
+      </div>
+      <div class="service-card reveal d2">
+        <span class="service-number">03</span>
+        <div class="service-icon">👤</div>
+        <h3>Personal Training</h3>
+        <p>One-on-one coaching with certified trainers who design custom workouts based on your body type, goals, and schedule. Accountability guaranteed.</p>
+      </div>
+      <div class="service-card reveal d3">
+        <span class="service-number">04</span>
+        <div class="service-icon">⚡</div>
+        <h3>Functional Fitness</h3>
+        <p>Improve mobility, stability, and everyday movement patterns. Our functional training zone is equipped with kettlebells, battle ropes, and turf area.</p>
+      </div>
+      <div class="service-card reveal d4">
+        <span class="service-number">05</span>
+        <div class="service-icon">💪</div>
+        <h3>CrossFit</h3>
+        <p>High-intensity functional training for those who love a challenge. Scaled workouts for all fitness levels with a motivating group atmosphere.</p>
+      </div>
+      <div class="service-card reveal d5">
+        <span class="service-number">06</span>
+        <div class="service-icon">🥗</div>
+        <h3>Nutrition Guidance</h3>
+        <p>Customised diet plans from certified nutritionists. Whether you want fat loss or muscle gain, your diet plan is built around your lifestyle.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="trainers">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">Our Team</span>
+      <h2 class="title">Expert <em>Trainers</em></h2>
+      <p class="subtitle">Our certified coaches bring years of experience in strength training, weight loss, and sports performance.</p>
+    </div>
+    <div class="trainers-grid">
+      <div class="trainer-card reveal">
+        <div class="trainer-img">
+          <img src="images/trainers/trainer-1.jpg" alt="Head Coach Arjun Mehta" loading="lazy">
+          <div class="overlay"></div>
+          <div class="trainer-social">
+            <a href="#" aria-label="Instagram"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+            <a href="#" aria-label="YouTube"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.94 2C5.12 20 12 20 12 20s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg></a>
+          </div>
+        </div>
+        <div class="trainer-info">
+          <h3>Arjun Mehta</h3>
+          <div class="role">Head Coach</div>
+          <div class="spec">Strength & Conditioning · 10 yrs exp</div>
+          <span class="trainer-cert">NSCA · K11 Certified</span>
+        </div>
+      </div>
+      <div class="trainer-card reveal d1">
+        <div class="trainer-img">
+          <img src="images/trainers/trainer-2.jpg" alt="Coach Priya Sharma" loading="lazy">
+          <div class="overlay"></div>
+          <div class="trainer-social">
+            <a href="#" aria-label="Instagram"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+            <a href="#" aria-label="YouTube"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.94 2C5.12 20 12 20 12 20s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg></a>
+          </div>
+        </div>
+        <div class="trainer-info">
+          <h3>Priya Sharma</h3>
+          <div class="role">Weight Loss Coach</div>
+          <div class="spec">Fat Loss · Nutrition Coaching · 7 yrs exp</div>
+          <span class="trainer-cert">ACE · ISSN</span>
+        </div>
+      </div>
+      <div class="trainer-card reveal d2">
+        <div class="trainer-img">
+          <img src="images/trainers/trainer-3.jpg" alt="Coach Vikram Rathore" loading="lazy">
+          <div class="overlay"></div>
+          <div class="trainer-social">
+            <a href="#" aria-label="Instagram"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+            <a href="#" aria-label="YouTube"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.94 2C5.12 20 12 20 12 20s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg></a>
+          </div>
+        </div>
+        <div class="trainer-info">
+          <h3>Vikram Rathore</h3>
+          <div class="role">Functional Coach</div>
+          <div class="spec">CrossFit · Mobility · 8 yrs exp</div>
+          <span class="trainer-cert">CrossFit L2 · FMS</span>
+        </div>
+      </div>
+      <div class="trainer-card reveal d3">
+        <div class="trainer-img">
+          <img src="images/trainers/trainer-4.jpg" alt="Coach Neha Kapoor" loading="lazy">
+          <div class="overlay"></div>
+          <div class="trainer-social">
+            <a href="#" aria-label="Instagram"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+            <a href="#" aria-label="YouTube"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.94 2C5.12 20 12 20 12 20s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg></a>
+          </div>
+        </div>
+        <div class="trainer-info">
+          <h3>Neha Kapoor</h3>
+          <div class="role">Yoga & Wellness</div>
+          <div class="spec">Yoga · Flexibility · Recovery · 6 yrs exp</div>
+          <span class="trainer-cert">RYT-500 · ACE</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="gallery" style="background:var(--bg2)">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">Our Facility</span>
+      <h2 class="title">See <em>EPIC GYM</em></h2>
+      <p class="subtitle">Modern equipment, clean spaces, and an atmosphere built for results. Take a tour of our facility.</p>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-item reveal" data-img="images/gallery/gallery-1.jpg">
+        <img src="images/gallery/gallery-1.jpg" alt="Strength training area with modern equipment" loading="lazy">
+        <div class="overlay"><span>🔍 Free Weight Zone</span></div>
+      </div>
+      <div class="gallery-item reveal d1" data-img="images/gallery/gallery-2.jpg">
+        <img src="images/gallery/gallery-2.jpg" alt="Cardio machines section" loading="lazy">
+        <div class="overlay"><span>🔍 Cardio Area</span></div>
+      </div>
+      <div class="gallery-item reveal d1" data-img="images/gallery/gallery-3.jpg">
+        <img src="images/gallery/gallery-3.jpg" alt="Weightlifting platform" loading="lazy">
+        <div class="overlay"><span>🔍 Lifting Platform</span></div>
+      </div>
+      <div class="gallery-item reveal d2" data-img="images/gallery/gallery-4.jpg">
+        <img src="images/gallery/gallery-4.jpg" alt="Group workout session" loading="lazy">
+        <div class="overlay"><span>🔍 Group Training</span></div>
+      </div>
+      <div class="gallery-item reveal d2" data-img="images/gallery/gallery-5.jpg">
+        <img src="images/gallery/gallery-5.jpg" alt="Personal training session" loading="lazy">
+        <div class="overlay"><span>🔍 Personal Training</span></div>
+      </div>
+      <div class="gallery-item reveal d3" data-img="images/gallery/gallery-6.jpg">
+        <img src="images/gallery/gallery-6.jpg" alt="Functional training zone" loading="lazy">
+        <div class="overlay"><span>🔍 Functional Zone</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section pricing" id="pricing">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">Membership Plans</span>
+      <h2 class="title">Choose Your <em>Plan</em></h2>
+      <p class="subtitle">Affordable pricing with premium facilities. No hidden charges. Start your transformation today.</p>
+    </div>
+    <div class="pricing-grid">
+      <div class="pricing-card reveal">
+        <h3 class="pricing-name">Monthly</h3>
+        <p class="pricing-desc">Perfect for beginners. Full access, no commitment.</p>
+        <div class="pricing-price"><span class="currency">₹</span><span class="amount">1,499</span><span class="period">/month</span></div>
+        <ul class="pricing-features">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Full gym access</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Cardio & free weights</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Locker facility</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Fitness assessment</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Basic diet consultation</li>
+        </ul>
+        <a href="#contact" class="btn-primary" style="width:100%;justify-content:center">Join Now</a>
+      </div>
+      <div class="pricing-card featured reveal d1">
+        <div class="badge">Most Popular</div>
+        <h3 class="pricing-name">Quarterly</h3>
+        <p class="pricing-desc">Best value with dedicated trainer support.</p>
+        <div class="pricing-price"><span class="currency">₹</span><span class="amount">3,999</span><span class="period">/3 months</span></div>
+        <ul class="pricing-features">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Everything in Monthly</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> 4 PT sessions included</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Advanced diet plan</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Body composition scan</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Priority class booking</li>
+        </ul>
+        <a href="#contact" class="btn-primary" style="width:100%;justify-content:center">Get This Plan</a>
+      </div>
+      <div class="pricing-card reveal d2">
+        <h3 class="pricing-name">Annual</h3>
+        <p class="pricing-desc">Maximum savings. Commit to your transformation.</p>
+        <div class="pricing-price"><span class="currency">₹</span><span class="amount">11,999</span><span class="period">/year</span></div>
+        <ul class="pricing-features">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Everything in Quarterly</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> 12 PT sessions included</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Monthly body scan</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Nutrition follow-ups</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> 2 guest passes/month</li>
+        </ul>
+        <a href="#contact" class="btn-primary" style="width:100%;justify-content:center">Join Now</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section transformations" id="transformations">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">Real Results</span>
+      <h2 class="title">Transformation <em>Stories</em></h2>
+      <p class="subtitle">Our members have achieved incredible results. These transformations speak louder than words.</p>
+    </div>
+    <div class="transform-grid">
+      <div class="transform-card reveal">
+        <div class="transform-images">
+          <img src="images/testimonials/transform-1.jpg" alt="Before transformation">
+          <img src="images/testimonials/transform-2.jpg" alt="After transformation">
+        </div>
+        <div class="transform-info">
+          <h4>Rahul's 3-Month Transformation</h4>
+          <p>Lost 18 kg with our weight loss program and personal training. From struggling with stairs to running 5K.</p>
+          <span class="transform-result">-18 kg · 12 weeks</span>
+        </div>
+      </div>
+      <div class="transform-card reveal d1">
+        <div class="transform-images">
+          <img src="images/testimonials/transform-3.jpg" alt="Before transformation">
+          <img src="images/testimonials/transform-4.jpg" alt="After transformation">
+        </div>
+        <div class="transform-info">
+          <h4>Ananya's Muscle Gain Journey</h4>
+          <p>Gained 8 kg of lean muscle with strength training and nutrition guidance. Completely transformed her physique.</p>
+          <span class="transform-result">+8 kg muscle · 16 weeks</span>
+        </div>
+      </div>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial-card reveal">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">"I tried everything to lose weight before joining EPIC. The trainers here actually care about your progress. Lost 12 kg in 3 months and kept it off."</p>
+        <div class="testimonial-author">
+          <img src="images/testimonials/avatar-1.jpg" alt="Rajesh Kumar" loading="lazy">
+          <div><div class="name">Rajesh Kumar</div><div class="detail">Weight Loss · 12 kg Lost</div></div>
+        </div>
+      </div>
+      <div class="testimonial-card reveal d1">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">"The best gym I've been to in the city. Equipment is top-notch, trainers are knowledgeable, and the atmosphere keeps you motivated every single day."</p>
+        <div class="testimonial-author">
+          <img src="images/testimonials/avatar-2.jpg" alt="Sneha Patel" loading="lazy">
+          <div><div class="name">Sneha Patel</div><div class="detail">Strength Training · 6 Months</div></div>
+        </div>
+      </div>
+      <div class="testimonial-card reveal d2">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">"Joined as a complete beginner and the trainers made me feel comfortable from day one. The diet consultation was a game-changer. Highly recommended for anyone starting out."</p>
+        <div class="testimonial-author">
+          <img src="images/testimonials/avatar-3.jpg" alt="Amit Verma" loading="lazy">
+          <div><div class="name">Amit Verma</div><div class="detail">Beginner to Fit · 4 Months</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="whyus">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">Why EPIC</span>
+      <h2 class="title">Why Choose <em>EPIC GYM</em></h2>
+      <p class="subtitle">We don't just build gyms — we build fitness communities. Here's what makes us different.</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-card reveal">
+        <div class="why-icon">🏅</div>
+        <h3>Imported Equipment</h3>
+        <p>We use premium Technogym and Life Fitness equipment — the same brands trusted by elite athletes worldwide.</p>
+      </div>
+      <div class="why-card reveal d1">
+        <div class="why-icon">🎯</div>
+        <h3>Certified Trainers</h3>
+        <p>Every coach holds internationally recognised certifications and has minimum 5 years of practical training experience.</p>
+      </div>
+      <div class="why-card reveal d2">
+        <div class="why-icon">📋</div>
+        <h3>Personalised Plans</h3>
+        <p>No two members train the same. Every workout and diet plan is customised to your body type and goals.</p>
+      </div>
+      <div class="why-card reveal d3">
+        <div class="why-icon">🕐</div>
+        <h3>Flexible Timings</h3>
+        <p>Open 6 AM to 10 PM every day. Early morning and late night batches available for working professionals.</p>
+      </div>
+      <div class="why-card reveal d4">
+        <div class="why-icon">✨</div>
+        <h3>Clean Environment</h3>
+        <p>Hospitality-standard cleanliness with sanitised equipment, air purifiers, and daily deep cleaning protocols.</p>
+      </div>
+      <div class="why-card reveal d5">
+        <div class="why-icon">🤝</div>
+        <h3>Friendly Community</h3>
+        <p>A supportive, non-judgmental atmosphere where everyone — from beginners to pros — feels welcome.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section faq" id="faq">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">FAQ</span>
+      <h2 class="title">Frequently Asked <em>Questions</em></h2>
+      <p class="subtitle">Everything you need to know before joining EPIC GYM.</p>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item active reveal">
+        <button class="faq-question" aria-expanded="true">
+          Do you provide personal training?
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+        <div class="faq-answer"><p>Yes! Our Quarterly and Annual plans include personal training sessions. Monthly members can add PT sessions at ₹500 per session. Our certified trainers will create a custom plan and track your progress every step of the way.</p></div>
+      </div>
+      <div class="faq-item reveal d1">
+        <button class="faq-question" aria-expanded="false">
+          Is diet guidance included?
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+        <div class="faq-answer"><p>Absolutely. All members receive a basic diet consultation. Quarterly and Annual members get a comprehensive customised diet plan with regular follow-ups from our certified nutritionists.</p></div>
+      </div>
+      <div class="faq-item reveal d2">
+        <button class="faq-question" aria-expanded="false">
+          What are the gym timings?
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+        <div class="faq-answer"><p>We're open from 6:00 AM to 10:00 PM, 7 days a week. We have dedicated time slots for women (8:00 AM – 11:00 AM) and offer early morning batches starting at 6 AM for working professionals.</p></div>
+      </div>
+      <div class="faq-item reveal d3">
+        <button class="faq-question" aria-expanded="false">
+          Can beginners join EPIC GYM?
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+        <div class="faq-answer"><p>Yes! Most of our members started as complete beginners. Our trainers specialise in working with first-timers. We'll teach you proper form, build your confidence, and progress at your pace. No experience needed — just the willingness to start.</p></div>
+      </div>
+      <div class="faq-item reveal d4">
+        <button class="faq-question" aria-expanded="false">
+          Do you offer trial sessions?
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+        <div class="faq-answer"><p>We absolutely do! Contact us to book a free trial session. You'll get a full facility tour, a workout with one of our trainers, and a consultation to discuss your fitness goals. No payment required, no pressure to join.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section contact" id="contact">
+  <div class="container">
+    <div class="contact-grid">
+      <div class="reveal">
+        <span class="section-label">Get In Touch</span>
+        <h2 class="title" style="margin-bottom:28px">Start Your <em>Journey</em></h2>
+        <div class="contact-info">
+          <div class="contact-item">
+            <div class="contact-icon">📍</div>
+            <div><h4>Visit Us</h4><p>Plot 24, Sector 12, Vashi, Navi Mumbai — 400703</p></div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">📞</div>
+            <div><h4>Call or WhatsApp</h4><p>+91 98765 43210</p></div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">✉️</div>
+            <div><h4>Email</h4><p>info@epicgym.in</p></div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">🕐</div>
+            <div><h4>Hours</h4><p>Mon–Sun · 6:00 AM – 10:00 PM</p></div>
+          </div>
+        </div>
+        <div class="map-frame reveal">
+          <div class="map-overlay">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <p>Vashi, Navi Mumbai — 400703</p>
+            <span>Google Maps integration</span>
+          </div>
+        </div>
+      </div>
+      <div class="reveal d1">
+        <form class="contact-form" onsubmit="event.preventDefault();alert('Thank you for reaching out! Our team will contact you within 24 hours. 💪');this.reset()">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" id="name" placeholder="Your full name" required>
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" placeholder="your@email.com" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" placeholder="+91 98765 43210" required>
+          </div>
+          <div class="form-group">
+            <label for="interest">I'm interested in</label>
+            <input type="text" id="interest" placeholder="Membership, Personal Training, Trial Session..." required>
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" placeholder="Tell us about your fitness goals..." required></textarea>
+          </div>
+          <button type="submit" class="btn-primary" style="justify-content:center;width:100%">Send Enquiry <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg></button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#" class="nav-logo">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 6.5h11v11h-11z"/><path d="M2 12h4.5M17.5 12H22M12 2v4.5M12 17.5V22"/></svg>
+          EPIC<span>GYM</span>
+        </a>
+        <p>Navi Mumbai's premier fitness destination. Build strength. Become Epic.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#trainers">Trainers</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h4>Programs</h4>
+        <a href="#">Strength Training</a>
+        <a href="#">Weight Loss</a>
+        <a href="#">Personal Training</a>
+        <a href="#">CrossFit</a>
+        <a href="#">Nutrition</a>
+      </div>
+      <div class="footer-col">
+        <h4>Connect</h4>
+        <a href="#">Instagram</a>
+        <a href="#">YouTube</a>
+        <a href="#">Facebook</a>
+        <a href="#">WhatsApp</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 EPIC GYM. All rights reserved.</span>
+      <span>Built for results. Made in India.</span>
+    </div>
+  </div>
+</footer>
+
+<div class="whatsapp-btn" id="whatsappBtn" role="button" tabindex="0" aria-label="Chat with us on WhatsApp">
+  <div class="ripple" id="waRipple"></div>
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  <span class="tooltip">Chat with us on WhatsApp</span>
+</div>
+
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" id="lightboxClose" aria-label="Close">✕</button>
+  <img id="lightboxImg" src="" alt="Gallery image">
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded',()=>{
+
+// Particles
+const pc=document.getElementById('particles');
+if(pc){for(let i=0;i<18;i++){const p=document.createElement('div');p.className='particle';p.style.left=Math.random()*100+'%';p.style.animationDelay=Math.random()*8+'s';p.style.animationDuration=(6+Math.random()*8)+'s';pc.appendChild(p)}}
+
+// Nav scroll
+const nav=document.getElementById('navbar');
+const pb=document.getElementById('progressBar');
+window.addEventListener('scroll',()=>{const s=window.scrollY;nav.classList.toggle('scrolled',s>80);const h=document.documentElement.scrollHeight-window.innerHeight;pb.style.width=(h>0?(s/h)*100:0)+'%'},{passive:true});
+
+// Mobile menu
+const t=document.getElementById('navToggle');
+const l=document.getElementById('navLinks');
+t.addEventListener('click',()=>{t.classList.toggle('active');l.classList.toggle('open');document.body.style.overflow=l.classList.contains('open')?'hidden':''});
+l.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{t.classList.remove('active');l.classList.remove('open');document.body.style.overflow=''}));
+
+// Lightbox
+const lb=document.getElementById('lightbox');
+const li=document.getElementById('lightboxImg');
+document.querySelectorAll('.gallery-item').forEach(item=>{item.addEventListener('click',()=>{const s=item.getAttribute('data-img')||item.querySelector('img').src;li.src=s;lb.classList.add('active');document.body.style.overflow='hidden'})});
+document.getElementById('lightboxClose').addEventListener('click',()=>{lb.classList.remove('active');document.body.style.overflow=''});
+lb.addEventListener('click',e=>{if(e.target===lb){lb.classList.remove('active');document.body.style.overflow=''}});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&lb.classList.contains('active')){lb.classList.remove('active');document.body.style.overflow=''}});
+
+// FAQ
+document.querySelectorAll('.faq-question').forEach(q=>{q.addEventListener('click',()=>{const i=q.parentElement;const a=i.classList.contains('active');document.querySelectorAll('.faq-item.active').forEach(x=>{x.classList.remove('active');x.querySelector('.faq-question').setAttribute('aria-expanded','false')});if(!a){i.classList.add('active');q.setAttribute('aria-expanded','true')}})});
+
+// ScrollReveal Observer
+const o=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');if(e.target.classList.contains('stat-item')||e.target.closest('.stats-grid')){e.target.querySelectorAll('.counter').forEach(c=>ac(c))}}})},{threshold:0.1,rootMargin:'0px 0px -50px 0px'});
+document.querySelectorAll('.reveal').forEach(el=>o.observe(el));
+
+// Counter animation
+function ac(el){if(el.dataset.animated)return;el.dataset.animated=true;const t=parseInt(el.dataset.target);const d=2000;const s=performance.now();function u(n){const e=n-s;const p=Math.min(e/d,1);const v=1-Math.pow(1-p,3);el.textContent=Math.floor(v*t).toLocaleString();if(p<1)requestAnimationFrame(u);else el.textContent=t.toLocaleString()}requestAnimationFrame(u)}
+
+// Stats observer
+const ss=document.querySelector('.stats-grid');if(ss){const so=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.querySelectorAll('.counter').forEach(c=>ac(c))}})},{threshold:0.3});so.observe(ss)}
+
+// WhatsApp ripple + open
+const w=document.getElementById('whatsappBtn');
+w.addEventListener('click',(e)=>{const r=document.getElementById('waRipple');r.classList.remove('active');void r.offsetWidth;r.classList.add('active');setTimeout(()=>window.open('https://wa.me/919876543210','_blank'),300)});
+w.addEventListener('keydown',(e)=>{if(e.key==='Enter'||e.key===' ')w.click()});
+
+});
+</script>
+</body>
+</html>
