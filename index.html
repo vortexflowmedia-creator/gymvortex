@@ -138,18 +138,34 @@ nav.scrolled{border-bottom:1px solid var(--border)}
 .about-feature{display:flex;align-items:center;gap:12px;font-size:14px;color:var(--txt);min-height:44px}
 .about-feature svg{width:18px;height:18px;flex-shrink:0;color:var(--red)}
 
-/* Services */
+/* Services - pill style */
 .services{background:var(--bg2)}
-.services-grid{display:grid;gap:16px}
-.service-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:28px 24px;transition:background var(--ease);position:relative;overflow:hidden}
-.service-card:active{background:var(--surface2);transform:scale(0.99)}
-.service-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--red),var(--orange));opacity:0;transition:opacity var(--ease)}
-.service-card:hover::before{opacity:1}
-.service-icon{width:48px;height:48px;border-radius:var(--radius);background:rgba(255,59,48,0.08);display:flex;align-items:center;justify-content:center;margin-bottom:18px;font-size:20px;transition:transform var(--ease)}
-.service-card:active .service-icon{transform:scale(0.95)}
-.service-card h3{font-family:'Oswald',sans-serif;font-size:18px;font-weight:600;margin-bottom:8px;text-transform:uppercase}
-.service-card p{color:var(--txt2);font-size:13px;line-height:1.7;font-weight:300}
-.service-number{display:none}
+.services-pills{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
+.service-pill{display:flex;align-items:center;gap:10px;padding:14px 24px;background:var(--surface);border:1px solid var(--border);border-radius:50px;font-size:15px;font-weight:500;color:var(--txt);transition:all var(--ease);min-height:52px;cursor:pointer;font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:0.5px;-webkit-tap-highlight-color:transparent;user-select:none}
+.service-pill:active{background:var(--surface2);transform:scale(0.96)}
+.service-pill .icon{font-size:18px;flex-shrink:0}
+.service-pill .arrow{font-size:14px;color:var(--red);margin-left:4px;transition:transform var(--ease)}
+.service-pill:active .arrow{transform:translateX(4px)}
+
+/* Service detail modal */
+.service-modal{position:fixed;inset:0;z-index:2000;background:rgba(0,0,0,0.92);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);display:none;align-items:flex-end;padding:0;cursor:pointer}
+@media(min-width:640px){.service-modal{align-items:center;padding:40px}}
+.service-modal.active{display:flex}
+.service-modal-content{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-xl) var(--radius-xl) 0 0;padding:40px 28px 32px;width:100%;max-width:520px;cursor:default;position:relative;animation:modalSlideUp 0.35s var(--ease-out);max-height:80vh;overflow-y:auto}
+@media(min-width:640px){.service-modal-content{border-radius:var(--radius-xl);margin:0 auto;animation:modalFade 0.3s var(--ease-out)}}
+@keyframes modalSlideUp{from{transform:translateY(100%)}to{transform:translateY(0)}}
+@keyframes modalFade{from{opacity:0;transform:translateY(20px) scale(0.97)}to{opacity:1;transform:none}}
+.service-modal-handle{width:40px;height:4px;background:var(--txt3);border-radius:2px;margin:0 auto 24px}
+@media(min-width:640px){.service-modal-handle{display:none}}
+.service-modal-close{position:absolute;top:16px;right:16px;width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,0.06);display:flex;align-items:center;justify-content:center;font-size:18px;color:var(--txt2);transition:background var(--ease)}
+.service-modal-close:active{background:rgba(255,255,255,0.12)}
+.service-modal-icon{width:56px;height:56px;border-radius:var(--radius);background:rgba(255,59,48,0.08);display:flex;align-items:center;justify-content:center;font-size:26px;margin-bottom:20px}
+.service-modal h3{font-family:'Oswald',sans-serif;font-size:24px;font-weight:600;text-transform:uppercase;margin-bottom:12px}
+.service-modal p{color:var(--txt2);font-size:15px;line-height:1.8;font-weight:300;margin-bottom:20px}
+.service-modal ul{display:flex;flex-direction:column;gap:10px;margin-bottom:24px}
+.service-modal ul li{display:flex;align-items:center;gap:10px;font-size:14px;color:var(--txt2);font-weight:300}
+.service-modal ul li svg{width:16px;height:16px;flex-shrink:0;color:var(--red)}
+.service-modal .btn-primary{width:100%;justify-content:center}
 
 /* Trainers */
 .trainers-grid{display:grid;gap:16px;grid-template-columns:1fr 1fr}
@@ -297,7 +313,8 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 0 24
   .about-image .accent-box{width:100px;height:100px;font-size:12px;bottom:-14px;right:-14px}
   .about-image .accent-box span{font-size:32px}
   .about-features{grid-template-columns:1fr 1fr}
-  .services-grid{grid-template-columns:repeat(2,1fr)}
+  .service-pill:hover{background:var(--surface2);border-color:var(--border-hover);transform:translateY(-2px)}
+  .service-pill:hover .arrow{transform:translateX(4px);color:var(--orange)}
   .trainers-grid{grid-template-columns:repeat(2,1fr)}
   .gallery-grid{grid-template-columns:repeat(3,1fr)}
   .gallery-item:first-child{grid-column:span 2;grid-row:span 2;aspect-ratio:1}
@@ -313,7 +330,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 0 24
   .stat-item:not(:last-child)::after{content:'';position:absolute;right:0;top:50%;transform:translateY(-50%);width:1px;height:50%;background:var(--border)}
   .footer-grid{grid-template-columns:1fr 1fr}
   .footer-bottom{flex-direction:row;justify-content:space-between;text-align:left}
-  .service-number{display:block;position:absolute;top:16px;right:20px;font-size:36px;font-weight:800;color:rgba(255,59,48,0.04);font-family:'Oswald',sans-serif;line-height:1;user-select:none}
+
   .hero-scroll{display:flex;position:absolute;bottom:28px;left:50%;transform:translateX(-50%);z-index:2;flex-direction:column;align-items:center;gap:6px;color:var(--txt3);font-size:10px;letter-spacing:3px;text-transform:uppercase;animation:bounceScroll 3s ease-in-out infinite}
   .hero-scroll .scroll-line{width:1px;height:36px;background:linear-gradient(to bottom,var(--red),transparent)}
   @keyframes bounceScroll{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(6px)}}
@@ -339,7 +356,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 0 24
   .contact-grid{grid-template-columns:1fr 1fr;gap:48px}
   .gallery-grid{grid-template-columns:repeat(4,1fr)}
   .gallery-item:first-child{grid-column:span 2;grid-row:span 2}
-  .services-grid{grid-template-columns:repeat(3,1fr)}
+
   .footer-grid{grid-template-columns:2fr 1fr 1fr 1fr}
   .hero h1{font-size:clamp(48px,6vw,80px)}
   .hero p{font-size:17px}
@@ -360,7 +377,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 0 24
   .trainer-card:hover .trainer-img .overlay{opacity:1}
   .trainer-card:hover .trainer-social{opacity:1;bottom:22px}
   .whatsapp-btn:hover{transform:scale(1.08);box-shadow:0 8px 30px rgba(37,211,102,0.45)}
-  .service-card:hover{background:var(--surface2);border-color:var(--border-hover);transform:translateY(-5px);box-shadow:0 20px 60px rgba(0,0,0,0.5)}
+
   .btn-primary:hover{background:var(--orange);transform:translateY(-2px);box-shadow:0 8px 30px var(--red-glow)}
   .btn-primary:hover::before{transform:translateX(100%)}
   .btn-secondary:hover{border-color:var(--red);color:var(--red);transform:translateY(-2px)}
@@ -455,13 +472,13 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 0 24
       <h2 class="title">Our <em>Services</em></h2>
       <p class="subtitle">From strength training to nutrition guidance, everything you need to achieve your fitness goals.</p>
     </div>
-    <div class="services-grid">
-      <div class="service-card reveal"><span class="service-number">01</span><div class="service-icon">🏋️</div><h3>Strength Training</h3><p>Build muscle and increase strength with our premium free weight section, squat racks, and plate-loaded machines.</p></div>
-      <div class="service-card reveal d1"><span class="service-number">02</span><div class="service-icon">🔥</div><h3>Weight Loss</h3><p>Structured fat loss programs combining cardio, HIIT, and diet planning. Sustainable results you can see.</p></div>
-      <div class="service-card reveal d2"><span class="service-number">03</span><div class="service-icon">👤</div><h3>Personal Training</h3><p>One-on-one coaching with certified trainers who design custom workouts based on your body type and goals.</p></div>
-      <div class="service-card reveal d3"><span class="service-number">04</span><div class="service-icon">⚡</div><h3>Functional Fitness</h3><p>Improve mobility, stability, and everyday movement with kettlebells, battle ropes, and turf training.</p></div>
-      <div class="service-card reveal d4"><span class="service-number">05</span><div class="service-icon">💪</div><h3>CrossFit</h3><p>High-intensity functional training for those who love a challenge. Scaled workouts for all fitness levels.</p></div>
-      <div class="service-card reveal d5"><span class="service-number">06</span><div class="service-icon">🥗</div><h3>Nutrition</h3><p>Customised diet plans from certified nutritionists built around your lifestyle and fitness goals.</p></div>
+    <div class="services-pills">
+      <button class="service-pill reveal" data-service="0"><span class="icon">🏋️</span> Strength Training <span class="arrow">→</span></button>
+      <button class="service-pill reveal d1" data-service="1"><span class="icon">🔥</span> Weight Loss <span class="arrow">→</span></button>
+      <button class="service-pill reveal d2" data-service="2"><span class="icon">👤</span> Personal Training <span class="arrow">→</span></button>
+      <button class="service-pill reveal d3" data-service="3"><span class="icon">⚡</span> Functional Fitness <span class="arrow">→</span></button>
+      <button class="service-pill reveal d4" data-service="4"><span class="icon">💪</span> CrossFit <span class="arrow">→</span></button>
+      <button class="service-pill reveal d5" data-service="5"><span class="icon">🥗</span> Nutrition <span class="arrow">→</span></button>
     </div>
   </div>
 </section>
@@ -725,6 +742,18 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 0 24
   <span class="tooltip">Chat with us on WhatsApp</span>
 </div>
 
+<div class="service-modal" id="serviceModal">
+  <div class="service-modal-content" id="serviceModalContent">
+    <div class="service-modal-handle"></div>
+    <button class="service-modal-close" id="serviceModalClose" aria-label="Close">✕</button>
+    <div class="service-modal-icon" id="serviceModalIcon">🏋️</div>
+    <h3 id="serviceModalTitle">Strength Training</h3>
+    <p id="serviceModalDesc">Build muscle and increase strength with our premium free weight section, squat racks, and plate-loaded machines.</p>
+    <ul id="serviceModalFeatures"></ul>
+    <a href="#contact" class="btn-primary" onclick="document.getElementById('serviceModal').classList.remove('active');document.body.style.overflow=''">Get Started</a>
+  </div>
+</div>
+
 <div class="lightbox" id="lightbox">
   <button class="lightbox-close" id="lightboxClose" aria-label="Close">✕</button>
   <img id="lightboxImg" src="" alt="Gallery image">
@@ -788,6 +817,26 @@ function ac(el){if(el.dataset.animated)return;el.dataset.animated=true;const t=p
 
 // Stats observer
 const ss=document.querySelector('.stats-grid');if(ss){const so=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting)e.target.querySelectorAll('.counter').forEach(c=>ac(c))})},{threshold:0.3});so.observe(ss)}
+
+// Service pills -> modal
+const svcData=[
+  {icon:'🏋️',title:'Strength Training',desc:'Build raw power and sculpt your physique with our premium free weight section, Olympic platforms, and plate-loaded machines. Our strength programs use progressive overload protocols to ensure continuous gains.',features:['Olympic lifting platforms','Squat & deadlift stations','Dumbbells up to 50 kg','Resistance machines','Form coaching included']},
+  {icon:'🔥',title:'Weight Loss',desc:'Science-backed fat loss programs combining metabolic conditioning, HIIT, and structured nutrition. Sustainable results you can see and feel — typically 4-8 kg loss in the first 8 weeks.',features:['HIIT & metabolic circuits','Cardio zone access','Body composition tracking','Weekly progress reviews','Custom meal plan']},
+  {icon:'👤',title:'Personal Training',desc:'One-on-one coaching with certified trainers who design custom workouts around your body type, goals, and schedule. Accountability that guarantees results.',features:['Dedicated personal coach','Custom workout plans','Form correction sessions','Progress tracking app','Flexible scheduling']},
+  {icon:'⚡',title:'Functional Fitness',desc:'Improve mobility, stability, and real-world movement patterns. Our functional zone features kettlebells, battle ropes, medicine balls, and a dedicated turf area.',features:['Kettlebell & sandbag work','Battle ropes & sleds','Mobility & flexibility','Core strength focus','Injury prevention drills']},
+  {icon:'💪',title:'CrossFit',desc:'High-intensity functional training for those who love a challenge. Every workout is scalable so beginners and pros train side by side. Community-driven energy.',features:['Daily WOD programming','Scaled for all levels','Timed benchmarks','Olympic lifting','Team challenges']},
+  {icon:'🥗',title:'Nutrition',desc:'Customised diet plans from certified sports nutritionists. Whether your goal is fat loss, muscle gain, or maintenance — your plan is built around your lifestyle and food preferences.',features:['Custom macro targets','Weekly meal templates','Grocery lists','Hydration tracking','Monthly check-ins']}
+];
+const sm=document.getElementById('serviceModal');
+const smc=document.getElementById('serviceModalContent');
+const smIcon=document.getElementById('serviceModalIcon');
+const smTitle=document.getElementById('serviceModalTitle');
+const smDesc=document.getElementById('serviceModalDesc');
+const smFeatures=document.getElementById('serviceModalFeatures');
+document.querySelectorAll('.service-pill').forEach(pill=>{pill.addEventListener('click',()=>{const i=parseInt(pill.dataset.service);const d=svcData[i];smIcon.textContent=d.icon;smTitle.textContent=d.title;smDesc.textContent=d.desc;smFeatures.innerHTML=d.features.map(f=>`<li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> ${f}</li>`).join('');sm.classList.add('active');document.body.style.overflow='hidden'})});
+document.getElementById('serviceModalClose').addEventListener('click',()=>{sm.classList.remove('active');document.body.style.overflow=''});
+sm.addEventListener('click',e=>{if(e.target===sm){sm.classList.remove('active');document.body.style.overflow=''}});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&sm.classList.contains('active')){sm.classList.remove('active');document.body.style.overflow=''}});
 
 // WhatsApp
 const w=document.getElementById('whatsappBtn');
